@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://da4cbfub0lsj1"]
+
+[ext_resource type="PackedScene" uid="uid://bdvdf5v87mmrr" path="res://addons/maaacks_options_menus/examples/scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="1_n3fiw"]
+
+[node name="MainMenu" type="Node2D"]
+position = Vector2(370, 60)
+
+[node name="MasterOptionsMenu" parent="." instance=ExtResource("1_n3fiw")]

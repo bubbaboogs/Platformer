@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8nk482etmmli"]
-
-[ext_resource type="Texture2D" uid="uid://7nafflown6ec" path="res://Sprites/grass.png" id="1_14ipx"]
-
-[node name="Grass" type="Sprite2D"]
-texture_filter = 1
-texture_repeat = 3
-texture = ExtResource("1_14ipx")

@@ -1,13 +1,23 @@
 [gd_resource type="TileSet" load_steps=4 format=3 uid="uid://84ocfklx3w3v"]
 
-[ext_resource type="PackedScene" uid="uid://c8nk482etmmli" path="res://Sprites/grass.tscn" id="1_xbk1l"]
-[ext_resource type="PackedScene" uid="uid://can7f1mghva8x" path="res://Sprites/dirt.tscn" id="2_37vj0"]
+[ext_resource type="Texture2D" uid="uid://buebwsur6krnu" path="res://Sprites/tiles.png" id="1_nf6gw"]
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_1m0nc"]
-resource_name = "Level 1"
-scenes/3/scene = ExtResource("1_xbk1l")
-scenes/4/scene = ExtResource("2_37vj0")
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wqx4h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdcqp"]
+texture = ExtResource("1_nf6gw")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [resource]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetScenesCollectionSource_1m0nc")
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_kdcqp")
+sources/0 = SubResource("TileSetScenesCollectionSource_wqx4h")

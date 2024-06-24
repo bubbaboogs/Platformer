@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://can7f1mghva8x"]
-
-[ext_resource type="Texture2D" uid="uid://bdhcxu6xkyj74" path="res://Sprites/dirt_tile.png" id="1_rd6ui"]
-
-[node name="DirtTile" type="Sprite2D"]
-texture_filter = 1
-texture_repeat = 3
-texture = ExtResource("1_rd6ui")
