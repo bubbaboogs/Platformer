@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cck3omvlkhpix" path="res://addons/maaacks_options_menus/examples/scenes/Menus/OptionsMenu/Video/VideoOptionsMenuWithExtras.tscn" id="4_v3ewd"]
 
 [node name="MasterOptionsMenu" instance=ExtResource("1_u1u8e")]
+anchors_preset = -1
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
+offset_bottom = -540.0
 
 [node name="Controls" parent="TabContainer" index="1" instance=ExtResource("2_p458j")]
 layout_mode = 2

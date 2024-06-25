@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://da4cbfub0lsj1"]
+[gd_scene load_steps=3 format=3 uid="uid://da4cbfub0lsj1"]
 
+[ext_resource type="Script" path="res://Scripts/CenterContainer.gd" id="1_0rvm5"]
 [ext_resource type="PackedScene" uid="uid://bdvdf5v87mmrr" path="res://addons/maaacks_options_menus/examples/scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="1_n3fiw"]
 
 [node name="MainMenu" type="Node2D"]
-position = Vector2(370, 60)
 
-[node name="MasterOptionsMenu" parent="." instance=ExtResource("1_n3fiw")]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="Camera2D/CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0rvm5")
+
+[node name="MasterOptionsMenu" parent="Camera2D/CanvasLayer" instance=ExtResource("1_n3fiw")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0

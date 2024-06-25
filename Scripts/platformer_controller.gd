@@ -12,7 +12,10 @@ signal hit_ground()
 ## Name of input action to move right.
 @export var input_right : String = "move_right"
 ## Name of input action to jump.
-@export var input_jump : String = "jump"
+@export var input_jump : String = "Jump"
+
+@onready var sprite : AnimatedSprite2D = $Character
+@onready var dustSprite : AnimatedSprite2D = $Character/Dust
 
 
 const DEFAULT_MAX_JUMP_HEIGHT = 150
@@ -137,9 +140,26 @@ func _input(_event):
 	acc.x = 0
 	if Input.is_action_pressed(input_left):
 		acc.x = -max_acceleration
+		if(is_feet_on_ground()):
+			sprite.play("walking")
+			dustSprite.play("Walk Run")
+		sprite.flip_h = true
+		dustSprite.flip_h = true
+	if Input.is_action_just_released(input_left):
+		sprite.play("idle")
+		dustSprite.play("none")
 	
 	if Input.is_action_pressed(input_right):
 		acc.x = max_acceleration
+		if(is_feet_on_ground()):
+			sprite.play("walking")
+			dustSprite.play("Walk Run")
+		sprite.flip_h = false
+		dustSprite.flip_h = false
+		
+	if Input.is_action_just_released(input_right):
+		sprite.play("idle")
+		dustSprite.play("none")
 	
 	if Input.is_action_just_pressed(input_jump):
 		holding_jump = true
@@ -162,6 +182,7 @@ func _physics_process(delta):
 		current_jump_type = JumpType.NONE
 		if is_jump_buffer_timer_running() and not can_hold_jump: 
 			jump()
+		sprite.animation = "idle"
 		
 		hit_ground.emit()
 	
@@ -255,7 +276,8 @@ func double_jump():
 		# Your first jump must be used when on the ground.
 		# If your first jump is used in the air, an additional jump will be taken away.
 		jumps_left -= 1
-	
+	sprite.play("jumping")
+	dustSprite.play("Double Jump")
 	velocity.y = -double_jump_velocity
 	current_jump_type = JumpType.AIR
 	jumps_left -= 1
@@ -265,6 +287,8 @@ func double_jump():
 ## Perform a ground jump without checking if the player is able to.
 func ground_jump():
 	velocity.y = -jump_velocity
+	sprite.play("jumping")
+	dustSprite.play("none")
 	current_jump_type = JumpType.GROUND
 	jumps_left -= 1
 	coyote_timer.stop()
